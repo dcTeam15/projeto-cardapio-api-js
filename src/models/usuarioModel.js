@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const connection = require('./../db');
+const connection = require('../database');
 
 const Usuario = connection.define('usuarios', {
     usuario_id: {
@@ -8,17 +8,23 @@ const Usuario = connection.define('usuarios', {
         allowNull: false,
         primaryKey: true
     },
-    usuario_nome: Sequelize.STRING(255),
+    usuario_nome: {
+        type: Sequelize.STRING(255),
+        allowNull: false
+    },
     usuario_senha: Sequelize.STRING(255),
-    usuario_cpf: Sequelize.STRING(12),
+    usuario_cpf: {
+        type: Sequelize.STRING(15),
+        unique: true
+    },
     deleted: {
         type: Sequelize.INTEGER,
-        defaultValue: 1
+        defaultValue: 0
     }
 });
 
 (() => {
-    connection.sync(); 
-})
+    connection.sync({ alter: true });
+})();
 
 module.exports = Usuario;

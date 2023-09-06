@@ -4,16 +4,17 @@ const app = express();
 const host = 'http://localhost';
 const port = '8000';
 
-const usuarioRoute = require('./routes/usuarioRoutes');
+const usuarioRoute = require('./src/routes/usuarioRoutes');
 
 app.use(cors());
 app.use(express.json());
 
-app.use('/usuarios', usuarioRoute);
 
 app.get("/", (req, res) => {
-    res.send('Home');
+  res.send('Home');
 });
+
+app.use('/usuarios', usuarioRoute);
 
 app.listen(port, () => {
     console.log(`Server on: ${host}:${port}`);
