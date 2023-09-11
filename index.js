@@ -5,6 +5,7 @@ const host = 'http://localhost';
 const port = '8000';
 
 const usuarioRoute = require('./src/routes/usuarioRoutes');
+const mesaRoute = require('./src/routes/mesaRoutes');
 
 app.use(cors());
 app.use(express.json());
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/usuarios', usuarioRoute);
+app.use('/mesas', mesaRoute);
 
 app.listen(port, () => {
     console.log(`Server on: ${host}:${port}`);

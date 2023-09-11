@@ -12,7 +12,7 @@ async function listAll(){
 
 async function listOne(id){
     try {
-        return await Usuario.findByPk(id) || {};
+        return await Usuario.findByPk(id);
     } catch (error) {
         throw {
             message: 'deu ruim trazendo um',

@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize');
 const connection = require('../database');
 
+const Mesa = require('./mesaModel');
+
 const Usuario = connection.define('usuarios', {
     usuario_id: {
         type: Sequelize.INTEGER,
