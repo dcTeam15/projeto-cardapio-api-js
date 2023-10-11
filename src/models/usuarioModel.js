@@ -17,7 +17,7 @@ const Usuario = connection.define('usuarios', {
     usuario_senha: Sequelize.STRING(255),
     usuario_cpf: {
         type: Sequelize.STRING(15),
-        unique: true
+        // unique: true
     },
     deleted: {
         type: Sequelize.INTEGER,
